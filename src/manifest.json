@@ -6,13 +6,13 @@
   },
   "manifest_version":2,
   "name":"CanvasQuizVim",
-  "version":"2.0",
+  "version":"3.0",
   "icons":{
     "36":"./kabaddi.png"
   },
   "content_scripts": [
     {
-      "matches":["https://uk.instructure.com/courses/*/quizzes/*/take"],
+      "matches":["https://*instructure.com/courses/*/quizzes/*/take"],
       "js": ["canvasQuizVim.js"]
     }
   ]
