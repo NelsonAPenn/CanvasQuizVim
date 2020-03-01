@@ -1,5 +1,6 @@
 var loaded = false;
-window.addEventListener("load", function() {loaded = true;});
+// window.addEventListener("load", function() {loaded = true; console.log("loaded");});
+// window.addEventListener("load", setup);
 var defaultBorder = "0px solid red";
 var questionBorder = "10px solid red";
 var inputBorder = "10px solid yellow";
@@ -63,7 +64,7 @@ function highlightQuestion()
   var q = questions[questionIndex];
   q.style.border = questionBorder;
   highlightInput();
-}
+ }
 
 function setup()
 {
@@ -82,6 +83,7 @@ function setup()
       if(itypeof(inputs[j]) == ITYPES.RADIO && inputs[j].checked)
         questions[i].index = j;
     }
+    questions[i].inputs[questions[i].index].elem.click();
     defaultQuestion();
   }
   highlightQuestion();
@@ -161,7 +163,7 @@ function previousOption()
 
 function submitQuiz()
 {
-  // document.getElementById("submit_quiz_button").click();
+  document.getElementById("submit_quiz_button").click();
 }
 function chooseInput(i)
 {
@@ -278,7 +280,9 @@ window.onkeydown = function(e)
   }
 }
 
-if(loaded){ setup(); }
-else{
-  window.addEventListener("load", (event) => { setup(); });
-}
+// if(loaded){ console.log("calling"); setup(); }
+// else{
+  // console.log("listening");
+  // window.addEventListener("load", (event) => { setup(); });
+// }
+setup();
